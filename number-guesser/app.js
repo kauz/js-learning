@@ -9,17 +9,17 @@ GAME FUNCTION:
 
 // Game values
 let min = 1,
-max = 10,
-winningNum = 2,
-guessesLeft = 3;
+	max = 10,
+	winningNum = getRandomNum(min, max),
+	guessesLeft = 3;
 
 // UI Elements
 const gameUI = document.querySelector('#game'),
-minNumUI = document.querySelector('.min-num'),
-maxNumUI = document.querySelector('.max-num'),
-guessBtnUI = document.querySelector('#guess-btn'),
-guessInputUI = document.querySelector('#guess-input'),
-messageUI = document.querySelector('.message');
+	  minNumUI = document.querySelector('.min-num'),
+	  maxNumUI = document.querySelector('.max-num'),
+	  guessBtnUI = document.querySelector('#guess-btn'),
+	  guessInputUI = document.querySelector('#guess-input'),
+	  messageUI = document.querySelector('.message');
 
 // Assign UI min and max
 minNumUI.textContent = min;
@@ -28,6 +28,13 @@ maxNumUI.textContent = max;
 // Listen for guess
 guessBtnUI.addEventListener('click', function () {
 	let guess = parseInt(guessInputUI.value);
+
+// Listen for play again
+gameUI.addEventListener('mousedown', function (e) {
+	if(e.target.className === 'play-again') {
+		window.location.reload();
+	}
+});
 
 	// Validate
 	if (isNaN(guess) || guess < min || guess > max) {
@@ -69,6 +76,15 @@ function gameOver (won, msg) {
 	guessInputUI.style.borderColor = color;
 	// Set message
 	setMessage(msg, color);
+
+	// Play again?
+	guessBtnUI.value = 'Play Again?';
+	guessBtnUI.className += 'play-again';
+}
+
+// Get winning number
+function getRandomNum (min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 // Set message
