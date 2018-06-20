@@ -39,13 +39,12 @@ gameUI.addEventListener('mousedown', function (e) {
 	// Validate
 	if (isNaN(guess) || guess < min || guess > max) {
 		setMessage(`Please enter a number between ${min} and ${max}`, 'red');
-	}
-
-	// Check if won
-	if (guess === winningNum) {
+	} else {
+		// Check if won
+		if (guess === winningNum) {
 		// Game over - won
 		gameOver(true, `${winningNum} is correct, YOU WIN!`);
-	} else {
+		} else {
 		// Wrong number
 		guessesLeft -= 1;
 
@@ -61,8 +60,11 @@ gameUI.addEventListener('mousedown', function (e) {
 			guessInputUI.value = '';
 			// Set message
 			setMessage(`${guess} is not correct, ${guessesLeft} guesses left.`, 'orange');
+			}
 		}
 	}
+
+
 });
 
 // Game over
