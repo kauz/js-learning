@@ -115,6 +115,6 @@ document.querySelector('#book-list').addEventListener('click', function(e) {
 	if (e.target.className === 'delete') {
 	ui.deleteBook(e.target);
 	ui.showAlert('Book removed.', 'success');	
-	}
+}
 	e.preventDefault();
 });
