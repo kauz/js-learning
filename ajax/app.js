@@ -5,7 +5,7 @@ function loadData () {
 	let xhr = new XMLHttpRequest();
 
 	// OPEN
-	xhr.open('GET', '/ajax/data.txt', true);
+	xhr.open('GET', '/ajax/data/data.txt', true);
 
 	// Optional - used for spinner/loaders
 	xhr.onprogress = function () {
