@@ -33,7 +33,7 @@ console.log(result.toUpperCase());
 
 
 
-// [Part 2, 3]
+// [Part 2, 3, 4]
 
 let re;
 // Literal Characters
@@ -69,10 +69,28 @@ re = /Hel{2,}o/i;	// Must occur at least {n} amount of times
 re = /([0-9]x){3}/;
 
 
+// Shorthand Character Classes
+re = /\w/;			// Word character - alphanumeric (letter || number) or _
+re = /\w+/;			// One or more word character
+re = /\W/;			// NON-word characters
+re = /\d/;			// Any digit
+re = /\d+/;			// One or more digit
+re = /\D+/;			// Any non-digit
+re = /\s/;			// Match whitespace
+re = /\S+/;			// Match Non-wthitespace
+re = /Hell\b/i;		// Word boundary
+
+
+// Assertions
+re = /x(?=y)/;		// Match x only if its followed by y
+re = /x(?!y)/;		// Match x only if its NOT followed by y
+
+
+
 
 
 // String to match
-let str = 'Hello Wolrd, 3x5x7x mr. Gray?';
+let str = 'Hello Wolrd, 3x5x7xy mr. Gray?';
 
 // Log results
 let result = re.exec(str);
