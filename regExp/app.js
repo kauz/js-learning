@@ -33,7 +33,7 @@ console.log(result.toUpperCase());
 
 
 
-// [Part 2, 3, 4]
+/*// [Part 2, 3, 4]
 
 let re;
 // Literal Characters
@@ -104,4 +104,4 @@ function reTest (re, str) {
 	}
 }
 
-reTest(re, str);
+reTest(re, str);*/
